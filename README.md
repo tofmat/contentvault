@@ -1,50 +1,112 @@
-# Welcome to your Expo app 👋
+# ContentVault
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Meet ContentVault - your digital treasure chest! 🎁 This app helps you collect and organize all your favorite stuff from the internet in one magical place. Whether it's cool articles, fun videos, or interesting links, just click once to save them into your own custom folders. Think of it as your personal digital library, but way more fun and organized! 🌟
 
-## Get started
+The platform aims to integrate with browser share functionality, allowing for one-click content saving directly from any 
+webpage or application.
 
-1. Install dependencies
+## Features of the mobile app
 
-   ```bash
-   npm install
-   ```
+- Save content from any app and socials using the share sheet
+- Organize content in custom folders with icons
+- Search through your saved content
+- Beautiful animations and transitions
+- Google authentication
+- Cross-platform (iOS & Android)
 
-2. Start the app
+## Prerequisites
 
-   ```bash
-   npx expo start
-   ```
+- Node.js (v14 or later)
+- npm or yarn
+- Vite
+- Expo CLI
+- Supabase account
+- Google Cloud Console project (for OAuth)
 
-In the output, you'll find options to open the app in a
+## Setup
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+1. Clone the repository:
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/content-vault.git
+cd content-vault
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Learn more
+3. Create a `.env` file in the root directory with the following variables:
+```
+EXPO_PUBLIC_SUPABASE_URL=your_supabase_url
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID=your_google_web_client_id
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+4. Set up Supabase:
+   - Create a new project in Supabase
+   - Create the following tables:
+     - `folders` (id, name, icon, parent_id, user_id, created_at)
+     - `contents` (id, url, title, description, thumbnail_url, folder_id, user_id, created_at, metadata)
+   - Enable Google OAuth in Authentication settings
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+5. Set up Google OAuth:
+   - Create a project in Google Cloud Console
+   - Enable Google Sign-In API
+   - Create OAuth 2.0 credentials
+   - Add your app's bundle identifier/package name
+   - Add authorized redirect URIs from Supabase
 
-## Join the community
+## Development
 
-Join our community of developers creating universal apps.
+1. Start the development server:
+```bash
+npm start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+2. Run on iOS:
+```bash
+npm run ios
+```
+
+3. Run on Android:
+```bash
+npm run android
+```
+
+## Building for Production
+
+1. Configure app.json with your bundle identifier/package name
+
+2. Build for iOS:
+```bash
+eas build --platform ios
+```
+
+3. Build for Android:
+```bash
+eas build --platform android
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [Expo](https://expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [Supabase](https://supabase.io/)
+- [React Native Paper](https://callstack.github.io/react-native-paper/)
+- [Moti](https://moti.fyi/)
+# contentvault
+# content-vault-web
+# content-vault-web
